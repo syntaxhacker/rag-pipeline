@@ -12,5 +12,14 @@ fi
 echo "Starting uvicorn server..."
 echo "=== End Startup Info ==="
 
-# Start uvicorn directly without extra debugging
-exec uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000} --log-level info
+# Debug the uvicorn command
+echo "Current directory: $(pwd)"
+echo "Python path: $PYTHONPATH"
+echo "Contents of current directory:"
+ls -la
+echo "Contents of app directory:"
+ls -la app/
+echo "Testing Python import:"
+python -c "import app.main; print('Import successful')" || echo "Import failed"
+echo "Starting uvicorn..."
+uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000} --log-level info
