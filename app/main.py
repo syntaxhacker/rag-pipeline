@@ -45,7 +45,7 @@ logger.info("RAG Pipeline API is ready to serve requests - datasets will load in
 
 class Question(BaseModel):
     text: str
-    dataset: str = "settings-dataset"  # Default dataset
+    dataset: str = "developer-portfolio"  # Default dataset
 
 @app.post("/answer")
 async def get_answer(question: Question):
@@ -79,17 +79,18 @@ async def load_datasets_background():
     if google_api_key:
         # Import RAGPipeline only when needed
         from .pipeline import RAGPipeline
-        for dataset_name in DATASET_CONFIGS.keys():
-            try:
-                logger.info(f"Loading dataset: {dataset_name}")
-                pipeline = RAGPipeline.from_preset(
-                    google_api_key=google_api_key,
-                    preset_name=dataset_name
-                )
-                pipelines[dataset_name] = pipeline
-                logger.info(f"Successfully loaded {dataset_name}")
-            except Exception as e:
-                logger.error(f"Failed to load {dataset_name}: {e}")
+        # Only load developer-portfolio to save memory
+        dataset_name = "developer-portfolio"
+        try:
+            logger.info(f"Loading dataset: {dataset_name}")
+            pipeline = RAGPipeline.from_preset(
+                google_api_key=google_api_key,
+                preset_name=dataset_name
+            )
+            pipelines[dataset_name] = pipeline
+            logger.info(f"Successfully loaded {dataset_name}")
+        except Exception as e:
+            logger.error(f"Failed to load {dataset_name}: {e}")
         logger.info(f"Background loading complete - {len(pipelines)} datasets loaded")
     else:
         logger.warning("No Google API key provided - running in demo mode without datasets")
@@ -116,11 +117,11 @@ async def root():
 async def health_check():
     """Health check endpoint"""
     logger.info("Health check called")
-    loading_status = "complete" if len(pipelines) == len(DATASET_CONFIGS) else "loading"
+    loading_status = "complete" if "developer-portfolio" in pipelines else "loading"
     return {
         "status": "healthy", 
         "datasets_loaded": len(pipelines), 
-        "total_datasets": len(DATASET_CONFIGS),
+        "total_datasets": 1,  # Only loading developer-portfolio
         "loading_status": loading_status,
         "port": os.getenv('PORT', '8000')
     }
