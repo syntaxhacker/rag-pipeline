@@ -1,0 +1,92 @@
+[
+  {
+    "question": "What are your main programming skills?",
+    "context": {
+      "category": "Technical Skills",
+      "area": "Programming Languages",
+      "experience_level": "Advanced"
+    },
+    "answer": "I specialize in Python, JavaScript/TypeScript, and have experience with machine learning frameworks like PyTorch and TensorFlow. I'm proficient in full-stack development, AI/ML model development, and modern web technologies including React, Node.js, and various cloud platforms."
+  },
+  {
+    "question": "What machine learning experience do you have?",
+    "context": {
+      "category": "Technical Skills",
+      "area": "AI/ML",
+      "experience_level": "Advanced"
+    },
+    "answer": "I have extensive experience in machine learning including diffusion models, reinforcement learning, RAG pipelines, and computer vision. I've worked on projects involving DDIM, score-based models, LoRA training, and various deep learning architectures for both research and production applications."
+  },
+  {
+    "question": "What are your hobbies and interests?",
+    "context": {
+      "category": "Personal",
+      "area": "Interests",
+      "experience_level": "Personal"
+    },
+    "answer": "I'm passionate about AI research, open-source contributions, and staying current with emerging technologies. I enjoy experimenting with new ML frameworks, contributing to technical communities, and exploring the intersection of AI and creative applications."
+  },
+  {
+    "question": "What kind of projects have you worked on?",
+    "context": {
+      "category": "Experience",
+      "area": "Projects",
+      "experience_level": "Professional"
+    },
+    "answer": "I've developed RAG pipelines for document processing, implemented diffusion models for image generation, created reinforcement learning systems, and built full-stack applications. My projects span from research implementations to production-ready systems with focus on AI/ML integration."
+  },
+  {
+    "question": "What frameworks and tools do you use?",
+    "context": {
+      "category": "Technical Skills",
+      "area": "Tools & Frameworks",
+      "experience_level": "Advanced"
+    },
+    "answer": "I work with PyTorch, TensorFlow, Hugging Face Transformers, React, Node.js, FastAPI, Docker, and various cloud services. I'm experienced with MLX for Apple Silicon optimization, Jupyter notebooks, and modern development tools for both research and production environments."
+  },
+  {
+    "question": "What is your experience with data processing?",
+    "context": {
+      "category": "Technical Skills",
+      "area": "Data Engineering",
+      "experience_level": "Advanced"
+    },
+    "answer": "I have strong experience in data pipeline development, including dataset creation, ETL processes, and data format conversions (JSON to Parquet). I work with various data processing libraries and have built systems for handling large-scale data ingestion and transformation."
+  },
+  {
+    "question": "Do you have experience with deployment and DevOps?",
+    "context": {
+      "category": "Technical Skills",
+      "area": "DevOps",
+      "experience_level": "Intermediate"
+    },
+    "answer": "Yes, I have experience with containerization using Docker, cloud deployment, API development with FastAPI, and CI/CD pipelines. I understand the full development lifecycle from research prototyping to production deployment."
+  },
+  {
+    "question": "What makes you unique as a developer?",
+    "context": {
+      "category": "Personal",
+      "area": "Unique Value",
+      "experience_level": "Professional"
+    },
+    "answer": "I bridge the gap between cutting-edge AI research and practical implementation. My ability to work across the full stack while maintaining deep expertise in machine learning allows me to build end-to-end AI-powered applications that are both technically sound and user-friendly."
+  },
+  {
+    "question": "What are your current focus areas?",
+    "context": {
+      "category": "Current Work",
+      "area": "Focus Areas",
+      "experience_level": "Advanced"
+    },
+    "answer": "I'm currently focused on advanced diffusion models, reinforcement learning applications, and RAG system optimization. I'm particularly interested in making AI models more efficient and accessible through techniques like LoRA fine-tuning and Apple Silicon optimization with MLX."
+  },
+  {
+    "question": "How do you approach learning new technologies?",
+    "context": {
+      "category": "Personal",
+      "area": "Learning Style",
+      "experience_level": "Professional"
+    },
+    "answer": "I learn by implementing - I dive into documentation, experiment with code, and build practical projects. I stay current through research papers, open-source contributions, and hands-on experimentation with emerging frameworks and techniques."
+  }
+]

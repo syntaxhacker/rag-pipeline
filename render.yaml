@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: rag-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    region: oregon
+    branch: main
+    rootDir: rag_pipeline
+    envVars:
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: HF_TOKEN
+        sync: false
+    healthCheckPath: /health
+    autoDeploy: true

@@ -1,0 +1,673 @@
+[
+  {
+    "question": "What is the effect of setting the time in this location?",
+    "context": {
+      "settings_origin_type": "Organization",
+      "tab": "Configuration > General Settings > Route Configuration",
+      "setting": "Delivery Start Time",
+      "description": "This is the time when the driver begins their delivery/pickup for any of the accounts in an organization.",
+      "possible_values": "Time format (HH:MM AM/PM)",
+      "component_type": "Input"
+    },
+    "answer": "The Delivery Start Time setting in Organization > Configuration > General Settings determines the time when the driver begins their delivery/pickup for any of the accounts in an organization, and accepts input in Time format (HH:MM AM/PM)."
+  },
+  {
+    "question": "What hours are configured with this code?",
+    "context": {
+      "settings_origin_type": "Organization",
+      "tab": "Configuration > General Settings > Route Configuration",
+      "setting": "Delivery End Time",
+      "description": "This is the time when the driver ends their delivery/pickup for any accounts in an organization.",
+      "possible_values": "Time format (HH:MM AM/PM)",
+      "component_type": "Input"
+    },
+    "answer": "The Delivery End Time setting in Organization > Configuration > General Settings determines the time when the driver ends their delivery/pickup for any accounts in an organization, and uses a Time format (HH:MM AM/PM)."
+  },
+  {
+    "question": "How does the settings 'load setting effect the order?",
+    "context": {
+      "settings_origin_type": "Organization",
+      "tab": "Configuration > General Settings > Route Configuration",
+      "setting": "Auto Load LH",
+      "description": "If it is enabled the transfer order details are automatically displayed while creating the linehaul",
+      "possible_values": [
+        "Enabled",
+        "Disabled"
+      ],
+      "component_type": "Switch"
+    },
+    "answer": "If enabled , the  Auto Load LH in Organization > Configuration > General Settings determines that the transfer order details are automatically displayed while creating the linehaul"
+  },
+  {
+    "question": "Where in the order to set a waiting time?",
+    "context": {
+      "settings_origin_type": "Organization",
+      "tab": "Configuration > General Settings > Route Configuration",
+      "setting": "Grace Period Time(in min)",
+      "description": "Driver wait time to deliver the order at the stop",
+      "possible_values": "Numeric value",
+      "component_type": "Input"
+    },
+    "answer": "The Grace Period Time(in min) is a configuration in Organization > Configuration > General Settings that sets the Driver's waiting time to deliver the order at the stop."
+  },
+  {
+    "question": "What are the requirements when a driver set their configurations?",
+    "context": {
+      "settings_origin_type": "Organization",
+      "tab": "Configuration > General Settings > Route Configuration",
+      "setting": "Time Window(in min)",
+      "description": "Default driver wait time to deliver a order the stop",
+      "possible_values": "Numeric value",
+      "component_type": "Input"
+    },
+    "answer": "In order for the code to trigger, configure these settings to default , all under Organization > Configuration > General Settings, has the requirement to set the Time Window(in min)."
+  },
+  {
+    "question": "How do i change the service duration?",
+    "context": {
+      "settings_origin_type": "Organization",
+      "tab": "Configuration > General Settings > Route Configuration",
+      "setting": "Service Duration(in min)",
+      "description": "This is the minimum amount of service time that will be added to each order.",
+      "possible_values": "Numeric value",
+      "component_type": "Input"
+    },
+    "answer": "To change the service duration, you can go to the Configuration > General Settings > Route Configuration page and change the Service Duration(in min) setting."
+  },
+  {
+    "question": "How do i set the delivery zipcodes?",
+    "context": {
+      "settings_origin_type": "Organization",
+      "tab": "Configuration > General Settings > Route Configuration",
+      "setting": "Delivery Zipcodes",
+      "description": "This is a setting that lets you decide, by enabling the option of zip codes, to allow the customers to set their delivery appointments based on driver availability in specific zip codes on designated days.",
+      "possible_values": [
+        "Enabled",
+        "Disabled"
+      ],
+      "component_type": "Switch"
+    },
+    "answer": "To set the delivery zipcodes, you can go to the Configuration > General Settings > Route Configuration page and toggle the Delivery Zipcodes setting."
+  },
+  {
+    "question": "What do you need to be aware of to assign overweight in a vehicle? ",
+    "context": {
+      "settings_origin_type": "Organization",
+      "tab": "Configuration > General Settings > Route Configuration",
+      "setting": "Require Capacity Optimization",
+      "description": "When it is enabled, error message is populated when overweight orders are assigned to the fleet.",
+      "possible_values": [
+        "Enabled",
+        "Disabled"
+      ],
+      "component_type": "Switch"
+    },
+    "answer": "Be mindfull with capacity because the toggle is not working correct in General when setting up in Organization > Configuration and by toggling ``` to Yes or No in ```Require Capacity Optimization``` section"
+  },
+  {
+    "question": "How does it function to send a day code to the WH?",
+    "context": {
+      "settings_origin_type": "Organization",
+      "tab": "Configuration > General Settings > Route Configuration",
+      "setting": "Show Same Day Move Orders At WH Stop",
+      "description": "Same day move orders are shown at the warehouse level.",
+      "possible_values": [
+        "Enabled",
+        "Disabled"
+      ],
+      "component_type": "Switch"
+    },
+    "answer": "Codes are sent to notify what setting is enabled, this all configured from toggle and switch by going to  General Settings and selecting Show Same Day Move Orders At WH Stop"
+  },
+  {
+    "question": "What is a better and quicker way to have order settings be configured, set to a certain type?",
+    "context": {
+      "settings_origin_type": "Organization",
+      "tab": "Configuration > General Settings > Route Configuration",
+      "setting": "Require Vehicle Type Based Optimization",
+      "description": "when we give the vehicle type while creating the order and after auto preplan, the order is assigned to the respective vehicle type",
+      "possible_values": [
+        "Enabled",
+        "Disabled"
+      ],
+      "component_type": "Switch"
+    },
+    "answer": "You can create a better and quicker way to add the data to the settings. the  vehicle options can be set in a vehicle specific page, then connect in the configuration by going to settings:  Require Vehicle Type Based Optimization"
+  },
+  {
+    "question": "What if my driver is not in the geo fence?",
+    "context": {
+      "settings_origin_type": "Organization",
+      "tab": "Configuration > General Settings > Driver Configuration",
+      "setting": "Geo Fence Exception",
+      "ref_images": [
+        "https://i.ibb.co/6JDgJsK9/Screenshot-2025-04-30-at-8-56-48-PM.png"
+      ],
+      "description": "By enabling this option the driver will be getting an exception if he is trying to complete the order form from other location and asking the reason for it.",
+      "possible_values": [
+        "Enabled",
+        "Disabled"
+      ],
+      "component_type": "Switch"
+    },
+    "answer": "to enable this setting, go to Configuration > General Settings > Driver Configuration and toggle the Geo Fence Exception setting."
+  },
+  {
+    "question": "How do i set the driver route notification?",
+    "context": {
+      "settings_origin_type": "Organization",
+      "tab": "Configuration > General Settings > Driver Configuration",
+      "setting": "Driver Route Notification (in hrs)",
+      "description": "Notification sent to driver prior the entered time",
+      "possible_values": "Numeric value",
+      "component_type": "Input"
+    },
+    "answer": "To set the driver route notification, go to Configuration > General Settings > Driver Configuration and enter the time in hours."
+  },
+  {
+    "question": "What settings to use for contact settings to driver and user?",
+    "context": {
+      "settings_origin_type": "Organization",
+      "tab": "Configuration > General Settings > Communication Preferences",
+      "setting": "Email For Alerts",
+      "description": "Enter the email id for shipper alerts",
+      "possible_values": "Email Address",
+      "component_type": "Input"
+    },
+    "answer": "The way to ensure that alert is enabled correctly make sure its set up, in General Settings which has the following set under, in Email For Alerts configuration settings"
+  },
+  {
+    "question": "How to get set the mobile number for alerts for the user?",
+    "context": {
+      "settings_origin_type": "Organization",
+      "tab": "Configuration > General Settings > Communication Preferences",
+      "setting": "Mobile Number For Alerts",
+      "description": "Enter shipper mobile number for alerts",
+      "possible_values": "Phone Number",
+      "component_type": "Input"
+    },
+    "answer": "Set what phone number should receive the user notification alerts in Mobile Number For Alerts, which in turn will help you understand where and where to contact. Please use the general settings to also edit and maintain this configuration settings."
+  },
+  {
+    "question": "What settings to use for support numbers?",
+    "context": {
+      "settings_origin_type": "Organization",
+      "tab": "Configuration > General Settings > Communication Preferences",
+      "setting": "Mobile Number For Support",
+      "description": "Enter mobile number for support",
+      "possible_values": "Phone Number",
+      "component_type": "Input"
+    },
+    "answer": "Configuration and settings for Mobile Number For Support for user, and for setting the correct function."
+  },
+  {
+    "question": "Where to set the maximum number of orders that can be processed per day for each warehouse?",
+    "context": {
+      "settings_origin_type": "Organization",
+      "tab": "Configuration > General Settings > Miscellaneous Configuration",
+      "setting": "Max Orders Per Day Per Warehouse",
+      "description": "Set the maximum number of orders that can be processed per day for each warehouse.",
+      "possible_values": "Numeric value",
+      "component_type": "Input"
+    },
+    "answer": "To set the maximum number of orders that can be processed per day for each warehouse, go to Configuration > General Settings > Miscellaneous Configuration and enter the number."
+  },
+  {
+    "question": "What is the setting used to update the look of PDF docs?",
+    "context": {
+      "settings_origin_type": "Organization",
+      "tab": "Configuration > General Settings > Printing Preferences",
+      "setting": "Manifest Pdf Template",
+      "description": "Select the manifest pdf template",
+      "possible_values": "Select the Template name",
+      "component_type": "Input"
+    },
+    "answer": "When configuring and customising look and feel, use this option here: printing settings to also be added with more customized look settings to further adjust the styles to your liking"
+  },
+
+  {
+    "question": " What does the Second Item Price configuration control?",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Billing & Invoice > Discount",
+      "setting": "Second Item Price*",
+      "description": "If the option is enabled discount will be applied for SMP(Second Machine Pricing) orders either as flat or percentage.",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "The setting Second Item Price* (in Account Configurations > Billing & Invoice > Discount) controls if discounts will be applied for SMP orders as flat or percentage."
+  },
+  {
+    "question": "What does the Group Order Second Item Price configuration control?",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Billing & Invoice > Discount",
+      "setting": "Group Order Second Item Price*",
+      "description": "If the option is enabled, discount will be applied for SMP(Second Machine Pricing) and discount will be applied as group orders either as flat or percentage.",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "The setting Group Order Second Item Price* (in Account Configurations > Billing & Invoice > Discount) controls if discounts will be applied for SMP and group orders as flat or percentage."
+  },
+  {
+    "question": "What is the functionality for consider Pickup Driver & Pay?",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Billing & invoice screen > Settings",
+      "setting": "Consider Pickup Driver & Pay",
+      "description": "By enabling it will take a new row with current Invoice driver(in driver dropdown field.) for that specific order config.",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "Consider Pickup Driver & Pay setting if enabled from 'Account Configurations > Billing & invoice screen > Settings', will generate a new row in the settings panel."
+  },
+  {
+    "question": "What is the behaviour from the setting: Fuel Surcharge?",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Billing & invoice screen > Settings",
+      "setting": "Fuel Surcharge",
+      "description": "If the setting is not turned on the fuel surcharge is not calculated",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "In Account Configurations > Billing & invoice screen > Settings, for the setting Fuel Surcharge, if the setting is not turned on the fuel surcharge is not calculated"
+  },
+  {
+    "question": "What does the setting: Skip Multi Day Pickup Rate tell me to skip?",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Billing & invoice screen > Settings",
+      "setting": "Skip Multi Day Pickup Rate",
+      "description": "If it is enabled, then it will not consider charges for multi day pickup.",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "In Account Configurations > Billing & invoice screen > Settings, for the setting Skip Multi Day Pickup Rate when turned to enabled, charges will no longer show for multi day pickup."
+  },
+  {
+    "question": "How do I configure a set number of days to check for the due date?",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Billing & invoice screen > Settings",
+      "setting": "Due Date",
+      "description": "Number of days for invoice clearance",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "By setting the Date for the setting of Due Date at Account Configurations > Billing & invoice screen > Settings, you can configure these number of days in your calendar"
+  },
+  {
+    "question": "What option does the Setting Group Orders For Billing configure",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Billing & invoice screen > Settings",
+      "setting": "Group Orders For Billing",
+      "description": "If it is enabled, the orders of this account will be grouped for billing.",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "Set Group Orders For Billing from Account Configurations > Billing & invoice screen > Settings so the account bills with other accounts when this is enabled."
+  },
+  {
+    "question": "What function are set with in transportation when you code?",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Billing & invoice screen > Settings",
+      "setting": "GL Code For Transportation Charges",
+      "description": "Every account will have a GL Code for transportation charges and the number will be there in accounting software eg:(quickbooks, sage)",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "Set the every account with a code from the following settings of GL Code For Transportation Charges which is configurable at  Account Configurations > Billing & invoice screen > Settings."
+  },
+  {
+    "question": "What does setting GL Code For Fuel Surcharge affect?",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Billing & invoice screen > Settings",
+      "setting": "GL Code For Fuel Surcharge",
+      "description": "Every account will have a GL CODE for fuel surcharge and the number will be there in accounting software eg:(quickbooks, sage)",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "You can track code changes for different accounts by changing the GL Code For Fuel Surcharge, all configured at: Account Configurations > Billing & invoice screen > Settings"
+  },
+  {
+    "question": "What does 'Considerable Billing Weight' determine?",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Billing & invoice screen > Settings",
+      "setting": "Considerable Billing Weight",
+      "description": "The transportation charge will be calculated based on the option selected like: order weight, DIM weight or max of the both.",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "With setting 'Considerable Billing Weight ' from Account Configurations > Billing & invoice screen > Settings you determine how much of the charges will affect the overall billing rate, be sure to check the options available: order weight, DIM weight or max of the both."
+  },
+  {
+    "question": "If im doing pricing per machine, how is it affected per second setting?",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Billing & invoice screen > Settings",
+      "setting": "Second Price Apply For",
+      "description": "The SMP(Second Machine Pricing) will be applied based on the option selected either order or item.",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "By configuring Second Price Apply For from Account Configurations > Billing & invoice screen > Settings, the setting will apply if you price in the order or by items."
+  },
+  {
+    "question": "How does  Invoice Email Attachment in Settings work?",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Billing & invoice screen > Settings",
+      "setting": "Invoice Email Attachment",
+      "description": "This provides an option, whether to send invoice in ' pdf ' or ' excel ' or in both formats.",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "From this area which is Account Configurations > Billing & invoice screen > Settings, you choose which to send the invoice to the client:  ' pdf ' or ' excel ' or in both formats by configuring Invoice Email Attachment setting."
+  },
+  {
+    "question": "What documents are affected by having Invoice PDF Template enabled?",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Billing & invoice screen > Settings",
+      "setting": "Invoice PDF Template",
+      "description": "To select pdf template for invoice.",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "Under Settings / Billing & invoice screen under Account Configurations, you can select which of these files that have the PDF format is affected"
+  },
+  {
+    "question": "What user type to configure with  Driver Eligibility Percentage From",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Billing & invoice screen > Settings",
+      "setting": "Driver Eligibility Percentage From",
+      "description": "Driver eligibility percentage is decided based on the driver level or account level configuration.",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "Under Driver Eligibility Percentage From in the settings section of the configurations for Account Configurations , you are to connect either to the users under account type settings or driver levels settings. "
+  },
+  {
+    "question": "What does the setting Display Move Order Billing Address affect?",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Billing & invoice screen > Settings",
+      "setting": "Display Move Order Billing Address",
+      "description": "If you choose \"warehouse to consignee\", the pickup address will be the warehouse. If you select \"consignee to consignee\", pickup address will be the consignee's address.",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "Configuring the right values to that address from a  the location of the settings from Display Move Order Billing Address in Account Configurations > Billing & invoice screen > Settings for the transfer order"
+  },
+  {
+    "question": "Under Apply Congestion on NYC what other zones get accessorial permissions set?",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Billing & invoice screen > Settings",
+      "setting": "Apply Congestion On NYC",
+      "description": "Enabling this will automatically add the accessorial created with zones component, If the order address's zip code is included in the accessorial configuration",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "Enabling the setting will allow the other accessorial functions created in certain zones such as NY, can be configured in Apply Congestion on NYC setting found under the tabs for the Billing Settings under  Account Configurations > Billing & invoice screen > Settings, as long as the setting was already set."
+  },
+  {
+    "question": "What functions to enable in order to trigger and set the code of the billing?",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Billing & invoice screen > Settings",
+      "setting": "Linehaul Charges For",
+      "description": "Billing based on Accessorial/los/ none",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "You must have a type of billing setting enabled as well as the Linehaul setting, to trigger and manage codes in the settings for  Account Configurations > Billing & invoice screen > Settings"
+  },
+  {
+    "question": "What specific leg must set configurations on for segregations? ",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Billing & invoice screen > Settings",
+      "setting": "Segregate Transportation Charges Between Legs",
+      "description": "Split the single transportation charge across all legs",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "A leg or part of the journey must have some sort of configuration on it in order to split codes and other config, that setting is Segregate Transportation Charges Between Legs under configurations in the Account Configurations > Billing & invoice screen > Settings portal"
+  },
+  {
+    "question": "For Single Invoice Line what are the primary benefits?",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Billing & invoice screen > Settings",
+      "setting": "Single Invoice Line For Billing",
+      "description": "Single line invoice is provided by enabling this",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "The setting of Single Invoice Line For Billing in configuration at Account Configurations > Billing & invoice screen > Settings is for ease of use and is in a single line. "
+  },
+  {
+    "question": "If I'm ready to start accepting invoice, where can I find such config",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Billing & invoice screen > Settings",
+      "setting": "Invoice Frequency",
+      "description": "The invoice frequency can be generated by selecting the option from dropdown, like invoice should be generated daily, every week, or a particular day or after completing stop.",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "The settings for invoice configuration, such as the timing is configurable by setting the Invoice Frequence at Account Configurations > Billing & invoice screen > Settings. "
+  },
+  {
+    "question": "How can the invoice setting be affected in terms of the size of the content?",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Billing & invoice screen > Settings",
+      "setting": "Limit Invoice By",
+      "description": "Can limit invoice by order or by amount",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "You can Limit Invoice By by both size and amount, with the setting in Account Configurations > Billing & invoice screen > Settings, by setting this value."
+  },
+  {
+    "question": "Is it possible to add custom or extra contact info for the client in the bill settings",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Billing & invoice screen > Settings",
+      "setting": "Take Vendor No",
+      "description": "The vendor no",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "By using the setting Take Vendor No, with settings in  Account Configurations > Billing & invoice screen > Settings  you can add any additional contact details for the client to send from the account side."
+  },
+  {
+    "question": "What happens to orders created with EDI in Rules configurations?",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Rules",
+      "setting": "Move API Orders To Pending",
+      "description": "If is yes, the orders which are created from EDI will be moved to pending status.",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "Setting Move API Orders To Pending with value to to Yes will affect any created orders with EDI to make them appear with a pending status, this settings at Account Configurations > Rules."
+  },
+  {
+    "question": "What's one of the actions one can do with Rule setting in order screens?",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Rules",
+      "setting": "Move Scheduled Orders To Verify Status",
+      "description": "If it is yes, the orders which are created will be moved into verified status.",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "Orders can be set to the value verified by  the value you configure in in Account Configurations > Rules, with setting Move Scheduled Orders To Verify Status"
+  },
+  {
+    "question": "Why to prevent order settings on number data, and how",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Rules",
+      "setting": "Move To Exception On Invalid Number",
+      "description": "If it is yes, the orders will be moved into exception on invalid mobile number.",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "Settings that has Invalid value must be checked in a separate tab such as Move To Exception On Invalid Number found on general settings under the rules config in Account Configurations > Rules."
+  },
+  {
+    "question": "How to prevent orders to be created on Delivery and to what configuration to set?",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Rules",
+      "setting": "Move To Exception On Invalid Delivery Zipcodes",
+      "description": "If it is yes, the orders will be moved into exception on invalid delivery zipcodes.",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "If you encounter invalid delivery errors you can prevent those to happen when creating orders in configuration with setting called  Move To Exception On Invalid Delivery Zipcodes in Account Configurations > Rules. with the option of setting the value Yes."
+  },
+  {
+    "question": "For having rules to automatically move configuration settings on orders scheduled and due, which setting to change?",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Rules",
+      "setting": "Move Pending Order To Exception When It Reaches Deadline",
+      "description": "If it is yes, the scheduled orders which are not completed with in the time will be moved into exception.",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "Configure the settings that move the setting to Exception on a specified date in the configuration for ```Move Pending Order To Exception When It Reaches Deadline```, which can found to be done through ```Account Configurations >> Rules"
+  },
+  {
+    "question": "What is the meaning of having the action need code enabled?",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Rules",
+      "setting": "Require Accessorial Authorization",
+      "description": "If it is yes, the accessorial will be authorized for further modification",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "The user action must be authorized on the settings in the settings function, that can be created and added with the setting 'Require Accessorial Authorization', from  Account Configurations > Rules"
+  },
+  {
+    "question": "When do I need the authorization details in the right format?",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Rules",
+      "setting": "Clone Accessorials With Authorization",
+      "description": "By enabling this the authorization details are also cloned when the order is cloned.",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "That can only happen if the settings in configuration for cloning data and for the  settings of the order by going to  Account Configurations > Rule set the clone  settings the name called:  Clone Accessorials With Authorization setting to enabled and proper user"
+  },
+  {
+    "question": "Where to see limitations to credit amount and data config?",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Rules",
+      "setting": "Restrict Order Creation Based On Credit Limit",
+      "description": "By enabling this, the order creation restricted if the account exceeds its credit limit.",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "Limitations to the account credits is managed at  Account Configurations > Rules. There in general to set all those settings. Or set on if you want to also enable the settings for new zone in  Restrict Order Creation Based On Credit Limit"
+  },
+  {
+    "question": "If invoice is not right because of a mistake, where to fix it?",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Rules",
+      "setting": "Address Of Invoice",
+      "description": "Selected address will be displayed in the invoice header",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "Invoice can be edited on the setup and what address can be displayed in Address Of Invoice in Account Configurations > Rules can control and help with this"
+  },
+  {
+    "question": "Settings what action and number counts as the required action, for correct driver coding functions?",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Rules",
+      "setting": "Require Driver Effort Insertion",
+      "description": "Based up on this setting we can decide whether to insert driver effort or not when order got aborted at stop level in route",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "Since the settings has an effort in the coding in mind, if the the order is not delivered, then the  You can connect what number counts as an active and proper code if you click Require Driver Effort Insertion"
+  },
+  {
+    "question": "Is there a requirement for codes to be considered working and how to see that all users have it activated for all the tools and settings with configurations?",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Rules",
+      "setting": "Start Driver Settlements Upon Approval Of",
+      "description": "Based up on this setting, driver settlements will be started upon the approval of Billing or Invoice",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "The setting will start to settle, if all  configurations has codes in configuration portal, and that all the setting is enabled in the settings code. You can configure with   Start Driver Settlements Upon Approval Of"
+  },
+  {
+    "question": "Are settings to also add a requirement for quote data?",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Rules",
+      "setting": "Require Validation For Full Address Form In Quotes",
+      "description": "On Enabling this setting will trigger validation for the complete Quote Address Form",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "By enabling the settings for all other data to work properly with all functions must have the first action being properly enabled, you can toggle this setting in the settings with setting for ```Require Validation For Full Address Form In Quotes``` "
+  },
+  {
+    "question": "What is the key purpose of setting the org detail banking for bills?",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Rules",
+      "setting": "Display Org Banking Details In Invoice",
+      "description": "Select 'Yes' to display the organization's banking details on the invoice, or choose 'No' to hide them.",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "This configuration and setting has 2 options, you can use those to decide. If you set to not show, it will not. If you say yes, it must be properly configured to do so, in general settings, with the  ```Display Org Banking Details In Invoice`````` "
+  },
+  {
+    "question": "Where or who to set to determine alerts and changes? ",
+    "context": {
+      "settings_origin_type": "Account Configurations",
+      "tab": "Rules",
+      "setting": "Enable ETA Rules",
+      "description": "Select the rules for when the ETA for the shippier is set from the toggle ",
+      "possible_values": null,
+      "component_type": null
+    },
+    "answer": "In this section , configuration is set if the codes will get sent and to who. To enable this for the users follow these instructions by following general setting portal in   Enable ETA Rules for configuration in tab setting . "
+  },
+
+  {
+    "question": "How do i change the BOL template?",
+    "context": {
+      "settings_origin_type": "Organization",
+      "tab": "Configuration > General Settings > Printing Preferences",
+      "setting": "BOL Pdf Template",
+      "description": "Select the bol pdf template",
+      "possible_values": "Select the template setup",
+      "component_type": "Dropdown"
+    },
+    "answer": "To change the BOL template, you can go to the Configuration > General Settings > Printing Preferences page and select the new template from the BOL Pdf Template dropdown menu."
+  }
+]
