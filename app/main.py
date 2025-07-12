@@ -35,21 +35,26 @@ logger.info(f"Port from env: {os.getenv('PORT', 'Not set - will use 8000')}")
 logger.info(f"Google API Key present: {'Yes' if google_api_key else 'No'}")
 logger.info(f"Available datasets: {list(DATASET_CONFIGS.keys())}")
 
-for dataset_name in DATASET_CONFIGS.keys():
-    try:
-        logger.info(f"Loading dataset: {dataset_name}")
-        pipeline = RAGPipeline.from_preset(
-            google_api_key=google_api_key,
-            preset_name=dataset_name
-        )
-        pipelines[dataset_name] = pipeline
-        logger.info(f"Successfully loaded {dataset_name}")
-    except Exception as e:
-        logger.error(f"Failed to load {dataset_name}: {e}")
+# Only try to load datasets if we have a Google API key
+if google_api_key:
+    for dataset_name in DATASET_CONFIGS.keys():
+        try:
+            logger.info(f"Loading dataset: {dataset_name}")
+            pipeline = RAGPipeline.from_preset(
+                google_api_key=google_api_key,
+                preset_name=dataset_name
+            )
+            pipelines[dataset_name] = pipeline
+            logger.info(f"Successfully loaded {dataset_name}")
+        except Exception as e:
+            logger.error(f"Failed to load {dataset_name}: {e}")
+else:
+    logger.warning("No Google API key provided - running in demo mode without datasets")
 
 # Use settings-dataset as default
 default_pipeline = pipelines.get("settings-dataset")
 logger.info(f"Successfully initialized {len(pipelines)} pipelines")
+logger.info("RAG Pipeline API is ready to serve requests")
 
 def create_3d_visualization(pipeline: RAGPipeline):
     # Create visualizations directory if it doesn't exist
@@ -212,6 +217,14 @@ class Question(BaseModel):
 @app.post("/answer")
 async def get_answer(question: Question):
     try:
+        # Check if any pipelines are loaded
+        if not pipelines:
+            return {
+                "answer": "RAG Pipeline is running but no datasets are currently loaded. This could be due to missing API keys or dataset loading errors. Please check the logs.",
+                "dataset": question.dataset,
+                "status": "no_datasets_loaded"
+            }
+        
         # Select the appropriate pipeline based on dataset
         if question.dataset not in pipelines:
             raise HTTPException(status_code=400, detail=f"Dataset '{question.dataset}' not available. Available datasets: {list(pipelines.keys())}")
