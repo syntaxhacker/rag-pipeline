@@ -257,7 +257,7 @@ async def shutdown_event():
 @app.get("/")
 async def root():
     """Root endpoint"""
-    return {"message": "RAG Pipeline API", "version": "1.0.0", "datasets": list(pipelines.keys())}
+    return {"status": "ok", "message": "RAG Pipeline API", "version": "1.0.0", "datasets": list(pipelines.keys())}
 
 @app.get("/health")
 async def health_check():
