@@ -1,6 +1,8 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import os
+import logging
+import sys
 from .pipeline import RAGPipeline
 from .config import DATASET_CONFIGS
 import umap
@@ -12,26 +14,42 @@ from sklearn.preprocessing import normalize
 import pandas as pd
 import json
 
-app = FastAPI()
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.StreamHandler(sys.stdout)
+    ]
+)
+logger = logging.getLogger(__name__)
+
+app = FastAPI(title="RAG Pipeline API", description="Multi-dataset RAG API", version="1.0.0")
 
 # Initialize pipelines for all datasets
 pipelines = {}
 google_api_key = os.getenv("GOOGLE_API_KEY")
 
+logger.info(f"Starting RAG Pipeline API")
+logger.info(f"Port from env: {os.getenv('PORT', 'Not set - will use 8000')}")
+logger.info(f"Google API Key present: {'Yes' if google_api_key else 'No'}")
+logger.info(f"Available datasets: {list(DATASET_CONFIGS.keys())}")
+
 for dataset_name in DATASET_CONFIGS.keys():
     try:
-        print(f"Loading dataset: {dataset_name}")
+        logger.info(f"Loading dataset: {dataset_name}")
         pipeline = RAGPipeline.from_preset(
             google_api_key=google_api_key,
             preset_name=dataset_name
         )
         pipelines[dataset_name] = pipeline
-        print(f"Successfully loaded {dataset_name}")
+        logger.info(f"Successfully loaded {dataset_name}")
     except Exception as e:
-        print(f"Failed to load {dataset_name}: {e}")
+        logger.error(f"Failed to load {dataset_name}: {e}")
 
 # Use settings-dataset as default
 default_pipeline = pipelines.get("settings-dataset")
+logger.info(f"Successfully initialized {len(pipelines)} pipelines")
 
 def create_3d_visualization(pipeline: RAGPipeline):
     # Create visualizations directory if it doesn't exist
@@ -209,8 +227,23 @@ async def list_datasets():
     """List all available datasets"""
     return {"datasets": list(pipelines.keys())}
 
+@app.on_event("startup")
+async def startup_event():
+    logger.info("FastAPI application startup complete")
+    logger.info(f"Server should be running on port: {os.getenv('PORT', '8000')}")
+
+@app.on_event("shutdown")
+async def shutdown_event():
+    logger.info("FastAPI application shutting down")
+
+@app.get("/")
+async def root():
+    """Root endpoint"""
+    return {"message": "RAG Pipeline API", "version": "1.0.0", "datasets": list(pipelines.keys())}
+
 @app.get("/health")
 async def health_check():
     """Health check endpoint"""
-    return {"status": "healthy", "datasets_loaded": len(pipelines)}
+    logger.info("Health check called")
+    return {"status": "healthy", "datasets_loaded": len(pipelines), "port": os.getenv('PORT', '8000')}
 
