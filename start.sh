@@ -22,4 +22,4 @@ ls -la app/
 echo "Testing Python import:"
 python -c "import app.main; print('Import successful')" || echo "Import failed"
 echo "Starting uvicorn..."
-uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000} --log-level info
+uvicorn app.main_simple:app --host 0.0.0.0 --port ${PORT:-8000} --log-level info
